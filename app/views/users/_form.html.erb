@@ -1,0 +1,61 @@
+
+
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control', id: "user_name" %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control', id: "user_email" %>
+
+  <%= f.label :gender %>
+  <%= f.select :gender,['Male','Female','NotSpecified'],:prompt=>"select", class: 'form-control', id: "user_gender" %>
+ 
+  <div class="check">
+  <%= f.label :Interested_in_Movie %>
+  <%= f.check_box :movie_interest, id: "checknow" %>
+  </br>
+  </div>
+
+  <fieldset>
+   <div class="column">
+   <div class="allmovies">
+    <%= f.label :allMovies %><br>
+      <ul id="list1" >
+       <li><input type="checkbox" /><span>Mangatha</span></li>
+       <li><input type="checkbox" /><span>Billa</span></li>
+       <li><input type="checkbox" /><span>Veeram</span></li>
+     </ul>
+   </div>
+
+    <div class="button">
+       <br><br>
+        <input type="button" value="-->" onclick="moveRight()">
+        <br><br><br><br>
+        <input type="button" value="<--" onclick="moveLeft()">
+    </div>
+
+   <div class="mymovies" >
+    <%= f.label :myMovies %><br>
+    <ul id="list2" >
+       <li><input type="checkbox" ><span>Puli</span></li>
+       <li><input type="checkbox" ><span>Thuppaki</span></li>
+       <li><input type="checkbox" ><span>Kaththi</span></li>
+     </ul>
+   </div>
+
+   </div>
+  </fieldset>
+ 
+ 
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control', id: "user_password" %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, class: 'form-control', id: "user_cpassword" %>
+
+  <input type="button" id="test" name="Submit" value="Submit" > 
+
+<% end %>
+
